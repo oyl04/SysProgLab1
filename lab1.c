@@ -53,7 +53,7 @@ int main()
 
         if (isLetter(c) && cntVowels + cntConsonant >= BufferSize){
             printf("A buffer overflow. The current word: %s... The word will be ignored.\n", buffer);
-            while (isLetter(c=getc(file))){}
+            while (isLetter(c=fgetc(file))){}
             cntVowels = 0;
             cntConsonant = 0;
             buffer[0] = '\0';
