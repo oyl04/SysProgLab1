@@ -45,13 +45,13 @@ int main()
 
     int cntVowels = 0, cntConsonant = 0, numWords = 16;
 
-    char **words = (char **)malloc(16 * sizeof(char *));
+    char **words = (char **)malloc(numWords * sizeof(char *));
 
     char buffer[BufferSize + 1];
 
     while (c=fgetc(file)){
 
-        if (isLetter(c) && cntVowels + cntConsonant >= 30){
+        if (isLetter(c) && cntVowels + cntConsonant >= BufferSize){
             printf("A buffer overflow. The current word: %s... The word will be ignored.\n", buffer);
             while (isLetter(c=getc(file))){}
             cntVowels = 0;
